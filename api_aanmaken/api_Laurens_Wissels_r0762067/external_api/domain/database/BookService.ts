@@ -17,14 +17,11 @@ export class BookService {
     list(){
         const titles: string[] = [
             "Atomic Habits",
-            "How can you trade lik a pro"
+            "How can you trade lik a pro",
+            "Harry Potter and the Order of the Phoenix"
         ]
         return Promise.all(titles.map(async title => await this.get(title)))
     }
-
-    // post(book:Book){
-        
-    // }
 
 }
 
