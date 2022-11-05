@@ -1,7 +1,5 @@
 import { Pool } from "./Pool";
 
-const axios = require("axios");
-
 export class BookService {
     async get(title: string): Promise<{}> {
         const SQL = `
@@ -9,7 +7,6 @@ export class BookService {
         FROM book
         WHERE title = '${title}'
         `;
-        console.log(SQL);
         var result: any = await Pool.getInstance().query(SQL);
         return result;
     }
@@ -29,13 +26,11 @@ export class BookService {
         const SQL = `
         update book
         set language = COALESCE(${book.language ? "'"+book.language+"'" : null}, language),
-        pagecount = COALESCE(${book.pagecount ? book.pagecount : null
-            }, pagecount),
+        pagecount = COALESCE(${book.pagecount ? book.pagecount : null}, pagecount),
         thumbnail = COALESCE(${book.thumbnail ? "'"+book.thumbnail+"'" : null},thumbnail),
         authors = COALESCE(${book.authors ? "'{"+book.authors+"}'" : null}, authors)
         WHERE title = '${book.title}';
     `;
-        console.log(SQL);
         Pool.getInstance().query(SQL);
     }
 

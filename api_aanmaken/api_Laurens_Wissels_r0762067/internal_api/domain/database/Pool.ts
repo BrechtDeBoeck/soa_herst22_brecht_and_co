@@ -1,13 +1,20 @@
 import { Pool as _pool } from "pg";
 
+
 export class Pool {
-    private pool = new _pool({
-        user: process.env.DB_USER,
-        host: process.env.HOST,
-        database: process.env.DATABASE,
-        password: process.env.PASSWORD,
-        port: process.env.DB_PORT,
-    });
+
+    private pool = this.createPool()
+
+    private createPool(){
+        // TODO: fix port bu, for some reason cannot read .env port
+        return new _pool({
+            user: process.env.DB_USER,
+            host: process.env.HOST,
+            database: process.env.DATABASE,
+            password: process.env.PASSWORD,
+            port: 5432,
+        });
+    }
 
     private static instance: Pool;
     private constructor() { }
