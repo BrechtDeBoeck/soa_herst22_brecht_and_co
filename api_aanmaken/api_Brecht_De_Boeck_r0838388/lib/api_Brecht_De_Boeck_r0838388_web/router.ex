@@ -8,14 +8,14 @@ defmodule Api_Brecht_De_BoeckR0838388Web.Router do
   scope "/", Api_Brecht_De_BoeckR0838388Web do
     pipe_through :api
 
-    #Get data from external API
-    get("/games", GameController, :list)
-    post("/games", GameController, :create)
-    put("/games/:id", GameController, :update)
-    patch("/games/:id", GameController, :update)
-    delete("/games/:id", GameController, :delete)
+    #Products
+    get("/products", GameController, :list)
+    post("/products", GameController, :create)
+    put("/products/:id", GameController, :update)
+    patch("/products/:id", GameController, :update)
+    delete("/products/:id", GameController, :delete)
 
-    #Create orders
+    #Orders
     get("/orders", OrderController, :list)
     post("/orders", OrderController, :create)
     put("/orders/:id", OrderController, :update)
