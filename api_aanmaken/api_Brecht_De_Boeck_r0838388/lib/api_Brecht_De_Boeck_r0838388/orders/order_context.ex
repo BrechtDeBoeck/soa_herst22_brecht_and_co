@@ -15,9 +15,8 @@ defmodule Api_Brecht_De_BoeckR0838388.OrderContext do
   end
 
   def list_orders() do
-    Order
-    |> Repo.get(id)
-    |> Repo.preload(:product)
+    from(o in Order, preload: [order_products: :products])
+    |> Repo.all()
   end
 
   def update_order(%Order{} = order, %Order{} = current_order, attrs) do
