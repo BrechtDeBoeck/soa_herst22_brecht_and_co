@@ -8,6 +8,8 @@ defmodule Api_Brecht_De_BoeckR0838388Web.Router do
   scope "/", Api_Brecht_De_BoeckR0838388Web do
     pipe_through :api
 
+    get("/", OrderController, :test)
+
     #Products
     get("/products", GameController, :list)
     post("/products", GameController, :create)

@@ -21,4 +21,8 @@ defmodule Api_Brecht_De_BoeckR0838388Web.OrderController do
   def delete() do
 
   end
+
+  def test(conn, _params) do
+    render(conn, "test.json")
+  end
 end

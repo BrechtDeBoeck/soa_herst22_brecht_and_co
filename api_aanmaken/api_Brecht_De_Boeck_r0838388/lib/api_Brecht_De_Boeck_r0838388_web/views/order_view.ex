@@ -16,4 +16,11 @@ defmodule Api_Brecht_De_BoeckR0838388Web.OrderView do
       products: render_many(order.products, ProductView, "product.json")
     }
   end
+
+  def render("test.json") do
+    %{
+      this: "yes",
+      works: "yes"
+    }
+  end
 end
